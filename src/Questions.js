@@ -2,17 +2,39 @@ import React from "react"
 
 export default function Questions(props) {
 
+const buttonStyles = {
+    backgroundColor: "beige",
+    marginRight: "5px",
+    borderRadius: "5px",
+    padding: "1rem",
+    cursor: "pointer"
+}
 
-    React.useEffect(() => {
-       fetch("https://opentdb.com/api.php?amount=5&category=22&type=multiple")
-            .then(res => res.json())
-            .then(data => {
-                props.setQuestions(data.results)
-            })
-    }, [0])
+function changeColor(e) {
+    e.target.style.backgroundColor = "green"
+}
 
+const questionElements = props.questions.map(element => {
 
-const questionElements = props.questions.map(category => <div>{category.question}</div>)
+    // Gathering correct and incorrect answers
+    const correctAnswer = element.correct_answer
+    const incorrectAnswers = element.incorrect_answers
+
+    // Joining correct and incorrect answers
+    const allAnswers = incorrectAnswers.concat(correctAnswer)
+
+    // Shuffling answers
+    const mixedAnswers = allAnswers.sort(() => Math.random() - 0.5)
+
+    // Creating answer button elements
+    const answerButtonEl = mixedAnswers.map(answer => <button style={buttonStyles} onClick={changeColor}>{answer}</button>)
+
+    return <div>
+            <div>{element.question}</div>
+            {answerButtonEl}
+            <hr></hr>
+        </div>
+})
 
     return (
         <main>
