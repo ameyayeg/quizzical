@@ -2,43 +2,34 @@ import React from "react"
 
 export default function Questions(props) {
 
-const buttonStyles = {
-    backgroundColor: "beige",
-    marginRight: "5px",
-    borderRadius: "5px",
-    padding: "1rem",
-    cursor: "pointer"
-}
+    const styles = {
+        backgroundColor: "beige",
+        marginRight: "5px",
+        borderRadius: "5px",
+        padding: "1rem",
+        cursor: "pointer"
+    }
 
-function changeColor(e) {
-    e.target.style.backgroundColor = "green"
-}
 
-const questionElements = props.questions.map(element => {
+    const jumbleAnswers = props.questions.map(element => {
+        const correctAnswer = element.correct.response
+        const incorrectAnswers = element.wrong.map(answer => answer.answer)
+        const allAnswers = incorrectAnswers.concat(correctAnswer)
+        const mixedAnswers = allAnswers.sort(() => Math.random() - 0.5)
 
-    // Gathering correct and incorrect answers
-    const correctAnswer = element.correct_answer
-    const incorrectAnswers = element.incorrect_answers
+        const answerButtons = mixedAnswers.map(answer => <button style={styles}>{answer}</button>)
 
-    // Joining correct and incorrect answers
-    const allAnswers = incorrectAnswers.concat(correctAnswer)
-
-    // Shuffling answers
-    const mixedAnswers = allAnswers.sort(() => Math.random() - 0.5)
-
-    // Creating answer button elements
-    const answerButtonEl = mixedAnswers.map(answer => <button style={buttonStyles} onClick={changeColor}>{answer}</button>)
-
-    return <div>
-            <div>{element.question}</div>
-            {answerButtonEl}
-            <hr></hr>
-        </div>
-})
+        return <div>
+                    <div>{element.question}</div>
+                    {answerButtons}
+                    <hr></hr>
+            </div>
+    })
 
     return (
         <main>
-            {questionElements}
+            {jumbleAnswers}
+            <button>Check</button>
         </main>
     )
 }
