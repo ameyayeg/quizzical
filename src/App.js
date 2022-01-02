@@ -41,8 +41,6 @@ export default function App() {
             isCorrect: answer === correctAnswer ? true : false,
             answer: answer,
             id: nanoid(),
-            isHeldAndCorrect: false,
-            isHeldAndIncorrect: false,
         })
         
     })

@@ -19,8 +19,6 @@ export default function Question(props) {
             key={answer.id}
             id={answer.id}
             isCorrect={answer.isCorrect}
-            isHeldAndCorrect={answer.isHeldAndCorrect}
-            isHeldAndIncorrect={answer.isHeldAndIncorrect}
             />
         )
     })
