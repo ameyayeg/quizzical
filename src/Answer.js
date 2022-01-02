@@ -4,7 +4,8 @@ export default function Answer(props) {
     let answerStyle = {}
   
         answerStyle = {
-            backgroundColor : props.isHeld ?  "#D6DBF5" : "white"
+            backgroundColor : props.isHeld ?  "#D6DBF5" : "white",
+            cursor: "pointer"
         }
     
 
