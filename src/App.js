@@ -5,11 +5,20 @@ import { nanoid } from "nanoid"
 
 export default function App() {
 
-    const [menu, setMenu] = React.useState(true)
+    const [welcome, setWelcome] = React.useState(true)
     const [questions, setQuestions] = React.useState([])
+    const [game, setGame] = React.useState(false)
+    const [checked, setChecked] = React.useState(false)
+    const [score, setScore] = React.useState(0)
+
+    function newGame() {
+        setGame(prevVal => !prevVal)
+        setChecked(false)
+        setScore(0)
+    }
     
     function handleClick() {
-        setMenu(prevVal => !prevVal)
+        setWelcome(prevVal => !prevVal)
     }
 
     React.useEffect(() => {
@@ -18,7 +27,7 @@ export default function App() {
              .then(data => {
                  setQuestions(getNewQuestions(data.results))
              })
-     }, [0])
+     }, [game])
 
    function getNewQuestions(listOfQuestions) {
 
@@ -38,9 +47,12 @@ export default function App() {
     return listOfAnswers.map(answer => {
         return ({
             isHeld: false,
-            isCorrect: answer === correctAnswer ? true : false,
             answer: answer,
+            correct: answer === correctAnswer ? true : false,
             id: nanoid(),
+            heldCorrect: false,
+            heldIncorrect: false,
+            checked: false,
         })
         
     })
@@ -53,7 +65,6 @@ export default function App() {
    const questionEls = questions.map(question => {
 
        return (
-
             <Question
             id={question.id}
             key={question.id}
@@ -87,8 +98,39 @@ export default function App() {
        }))
    }
 
+   function checkAnswers() {
+       setQuestions(prevQuestions => prevQuestions.map(question => {
+           const checkedAnswers = question.answers.map(answer => {
+               if(answer.isHeld && !answer.correct) {
+                   return ({
+                       ...answer,
+                       heldIncorrect: true,
+                       checked: true
+                   })
+               } else if(answer.isHeld && answer.correct) {
+                   setScore(prevScore => prevScore + 1)
+                   return({
+                       ...answer,
+                       heldCorrect: true,
+                       checked: true
+                   })
+               } else {
+                   return({
+                       ...answer,
+                       checked: true
+                   })
+               }
+           })
+           return ({
+               ...question,
+               answers: checkedAnswers
+           })
+       }))
+       setChecked(true)
+   }
+
     return(
-        menu 
+        welcome 
         ?
         <menu className="container">
             <img className="blob-5" src="blob 5.png" alt="decorative-blob"/>
@@ -100,6 +142,17 @@ export default function App() {
         :
         <main>
             {questionEls}
+            <div className="btn--container">
+                {
+                    checked ?
+                    <div>
+                        <span className="score">You scored {score}/5 correct answers</span>
+                        <button onClick={newGame}>Play again</button>
+                    </div>
+                    :
+                    <button onClick={checkAnswers}>Check answers</button>
+                }
+            </div>
         </main>
     )
 }

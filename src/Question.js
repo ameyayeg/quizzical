@@ -18,7 +18,10 @@ export default function Question(props) {
             questionId={props.id}
             key={answer.id}
             id={answer.id}
-            isCorrect={answer.isCorrect}
+            correct={answer.correct}
+            heldCorrect={answer.heldCorrect}
+            heldIncorrect={answer.heldIncorrect}
+            checked={answer.checked}
             />
         )
     })
@@ -26,9 +29,10 @@ export default function Question(props) {
     
 
     return (
+        
         <div className="container--question">
-            <h2>{props.question}</h2>
-            <div className="container-answer">
+            <h2 dangerouslySetInnerHTML={{ __html:  props.question}}/>
+            <div className="container--answers">
                 {answerEls}
             </div>
             <hr/>

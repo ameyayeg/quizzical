@@ -6,10 +6,10 @@
 
 body {
   background-color: #f5f7fb;
-  /* display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
   font-family: 'Karla', sans-serif;
-  height: 100vh;
+  min-height: 100vh;
 }
