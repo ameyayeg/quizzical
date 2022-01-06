@@ -1,6 +1,8 @@
 import React from "react";
 
 export default function Answer(props) {
+
+    console.log(props.answer)
     let answerStyle = {}
 
     if (props.checked && props.correct) {
@@ -21,9 +23,7 @@ export default function Answer(props) {
         }
     }
     return (
-        <div className="answer" style={answerStyle} onClick={props.runHold}>
-            {props.answer}
-        </div>
+        <div className="answer" style={answerStyle} onClick={props.runHold} dangerouslySetInnerHTML={{ __html:  props.answer}}/>
     )
 }
 
