@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/quizzical/static/css/main.5b9dee7c.css",
-    "main.js": "/quizzical/static/js/main.6e869311.js",
+    "main.css": "/quizzical/static/css/main.2195fdda.css",
+    "main.js": "/quizzical/static/js/main.bdd986bb.js",
+    "static/media/memphis-colorful.png": "/quizzical/static/media/memphis-colorful.70d889ffd1d77327db04.png",
     "index.html": "/quizzical/index.html",
-    "main.5b9dee7c.css.map": "/quizzical/static/css/main.5b9dee7c.css.map",
-    "main.6e869311.js.map": "/quizzical/static/js/main.6e869311.js.map"
+    "main.2195fdda.css.map": "/quizzical/static/css/main.2195fdda.css.map",
+    "main.bdd986bb.js.map": "/quizzical/static/js/main.bdd986bb.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b9dee7c.css",
-    "static/js/main.6e869311.js"
+    "static/css/main.2195fdda.css",
+    "static/js/main.bdd986bb.js"
   ]
 }
