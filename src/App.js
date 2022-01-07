@@ -132,30 +132,28 @@ export default function App() {
     return(
         <div>
             {
-                        welcome 
-                        ?
-                        <menu className="container">
-                            <img className="blob-5" src="blob 5.png" alt="decorative-blob"/>
-                            <h1 className="container--title">Quizzical</h1>
-                            <p className="container--description">Fancy practising your geography trivia?</p>
-                            <button className="container--button" onClick={handleClick}>Start quiz</button>
-                            <img className="blob-6" src="blob 6.png" alt="decorative-blob"/>
-                        </menu>
-                        :
-                        <main>
-                            {questionEls}
-                            <div className="btn--container">
-                                {
-                                    checked ?
-                                    <div>
-                                        <span className="score">You scored {score}/5 correct answers</span>
-                                        <button onClick={newGame}>Play again</button>
-                                    </div>
+                welcome 
+                ?
+                <menu className="container">
+                    <h1 className="container--title">Quizzical</h1>
+                    <p className="container--description">Fancy practising your geography trivia?</p>
+                    <button className="container--button" onClick={handleClick}>Start quiz</button>
+                </menu>
+                :
+                <main>
+                    {questionEls}
+                        <div className="btn--container">
+                            {
+                                checked ?
+                                <div>
+                                    <span className="score">You scored {score}/5 correct answers</span>
+                                    <button onClick={newGame}>Play again</button>
+                                </div>
                                     :
                                     <button onClick={checkAnswers}>Check answers</button>
                                 }
-                            </div>
-                        </main>
+                        </div>
+                </main>
             }
         </div>
 

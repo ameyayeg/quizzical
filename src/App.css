@@ -16,16 +16,12 @@ button {
   border: none;
 }
 
-main {
-  min-width: 100%;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .container--title {
@@ -42,21 +38,6 @@ main {
   margin: 1em 0;
 }
 
-.blob-5,
-.blob-6 {
-  position: absolute;
-}
-
-.blob-5 {
-  top: 0;
-  right: 0;
-}
-
-.blob-6 {
-  bottom: 0;
-  left: 0;
-}
-
 .container--question {
   margin-bottom: 30px;
 }
@@ -65,6 +46,7 @@ main {
   display: flex;
   gap: 10px;
   margin: 20px 0;
+  flex-wrap: wrap;
 }
 
 .answer {

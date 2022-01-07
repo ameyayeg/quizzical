@@ -2,7 +2,6 @@ import React from "react";
 
 export default function Answer(props) {
 
-    console.log(props.answer)
     let answerStyle = {}
 
     if (props.checked && props.correct) {
