@@ -12,7 +12,5 @@ body {
   align-items: center;
   font-family: 'Karla', sans-serif;
   min-height: 100vh;
-  overflow-x: scroll;
-  overflow-y: scroll;
   padding: 0 1em;
 }

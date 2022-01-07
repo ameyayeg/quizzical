@@ -3,7 +3,6 @@ main {
 }
 
 h2 {
-  font-weight: 700;
   color: #293264;
 }
 
@@ -37,8 +36,6 @@ button {
 
 .container--description {
   font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: normal;
   font-size: 16px;
   line-height: 19px;
   text-align: center;
@@ -86,6 +83,5 @@ button {
 
 .score {
   font-size: 18px;
-  font-weight: 700;
   margin-right: 40px;
 }
