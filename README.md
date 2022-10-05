@@ -14,3 +14,6 @@ This is the final solo project of Bob Ziroll's React course on Scrimba, develope
 </ul>
 
 # 📷 Screenshots
+
+![Screenshot 2022-10-05 at 09 04 18](https://user-images.githubusercontent.com/91851828/194067166-831f6218-e57e-4803-966e-ddb443cfae26.png)
+
