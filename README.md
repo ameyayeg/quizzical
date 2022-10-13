@@ -16,16 +16,16 @@ This is the final solo project of Bob Ziroll's React course on Scrimba, develope
 # How to install
 
 To fork the repository, click on the fork button at the top right of the page. Once the repo is forked open your terminal and perform the following commands: 
-```git clone hhttps://github.com/<YOUR GITHUB USERNAME>/developer-portfolio.git```
-```cd developer-portfolio```
+```$git clone hhttps://github.com/<YOUR GITHUB USERNAME>/developer-portfolio.git``` and
+```$cd developer-portfolio```
 
 Install packages from the root directory:
 
-```npm install```
+```$npm install```
 
 Start the development server:
 
-```npm run start```
+```$npm run start```
 
 # 📷 Screenshots
 
